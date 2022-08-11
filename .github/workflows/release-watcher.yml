@@ -23,4 +23,6 @@ jobs:
           git config --global user.email "dvlprtech@github.com"
           git config --global user.name "GitHub Action"
           git commit -am "v$VERSION"
-          git push
+          git tag -a "v$VERSION" -m "v$VERSION"
+          git push origin "v$VERSION"
+          
