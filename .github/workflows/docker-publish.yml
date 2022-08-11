@@ -17,9 +17,8 @@ jobs:
         with:
           username: ${{ env.DOCKER_ID }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Download the building artifacts
-      - uses: actions/checkout@v3
       - name: Get code and version to build
+        uses: actions/checkout@v3
       - run: |
               export TAG_VERSION=$(cat ./last-bun-version.txt)
               echo "APP_VERSION=${TAG_VERSION#*v}" >> $GITHUB_ENV
