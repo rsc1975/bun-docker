@@ -1,6 +1,7 @@
 name: Publish bun Docker Image
 
 on:
+  workflow_dispatch:
   push:
     branches: [ "main" ]
     commits: [ 'v[0-9]+.[0-9]+.?[0-9]*' ]
@@ -18,6 +19,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Download the building artifacts
       - uses: actions/checkout@v3
+      - name: Get code and version to build
       - run: |
               export TAG_VERSION=$(cat ./last-bun-version.txt)
               echo "APP_VERSION=${TAG_VERSION#*v}" >> $GITHUB_ENV
