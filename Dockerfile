@@ -1,12 +1,16 @@
-FROM ubuntu:22.04
+FROM ubuntu:22.04 as get
 
-RUN apt update && apt install -y curl unzip && apt clean && rm -rf /var/lib/apt/lists/*
+RUN apt update && apt install -y unzip && apt clean && rm -rf /var/lib/apt/lists/*
 
+WORKDIR /tmp
 
-RUN curl https://bun.sh/install | bash
+ADD https://github.com/oven-sh/bun/releases/latest/download/bun-linux-x64.zip bun-linux-x64.zip
+RUN unzip bun-linux-x64.zip 
+RUN chmod +x ./bun-linux-x64/bun
 
-ENV BUN_INSTALL="/root/.bun"
-ENV PATH="$BUN_INSTALL/bin:$PATH"
+FROM ubuntu:22.04 as build
+
+COPY --from=get /tmp/bun-linux-x64/bun /usr/local/bin/bun
 
 RUN echo '#!/bin/bash\n\
 set -e\n\
