@@ -20,5 +20,7 @@ jobs:
         run: |
           export TAG_VERSION=$(cat last-bun-version.txt)
           export VERSION=${TAG_VERSION#*v}
+          git config --global user.email "dvlprtech@github.com"
+          git config --global user.name "GitHub Action"
           git commit -am "v$VERSION"
           git push
