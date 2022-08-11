@@ -1,11 +1,7 @@
-### GLOBALS ###
 ARG GLIBC_RELEASE=2.34-r0
 
-
-### GET ###
 FROM alpine:latest as get
 
-# prepare environment
 WORKDIR /tmp
 RUN apk --no-cache add unzip
 
@@ -19,14 +15,13 @@ RUN wget https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub && \
     wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_RELEASE}/glibc-${GLIBC_RELEASE}.apk
 
 
-### IMAGE ###
+### FINAL IMAGE ###
 FROM alpine:latest
 
-# install bun
+ARG GLIBC_RELEASE
+
 COPY --from=get /tmp/bun-linux-x64/bun /usr/local/bin/ 
 
-# prepare glibc
-ARG GLIBC_RELEASE
 COPY --from=get /tmp/sgerrand.rsa.pub /etc/apk/keys
 COPY --from=get /tmp/glibc-${GLIBC_RELEASE}.apk /tmp
 
