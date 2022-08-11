@@ -1,11 +1,11 @@
-name: Docker Image CI
+name: Publish bun Docker Image
 
 on:
   push:
     branches: [ "main" ]
-
-jobs:
+    commits: [ 'v[0-9]+.[0-9]+.?[0-9]*' ]
     
+jobs:    
   upload-dockerhub:
     runs-on: ubuntu-latest
     env:
