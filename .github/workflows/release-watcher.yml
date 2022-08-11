@@ -1,7 +1,7 @@
 name: Get latest release version
 on:
   schedule:
-    - cron:  '0 * * * *'
+    - cron:  '55 * * * *'
 jobs:
   get-version:
     runs-on: ubuntu-latest
@@ -19,5 +19,5 @@ jobs:
         run: |
           export TAG_VERSION=$(cat last-bun-version.txt)
           export VERSION=${TAG_VERSION#*v}
-          git commit -am "New release version: $VERSION"
+          git commit -am "v$VERSION"
           git push
