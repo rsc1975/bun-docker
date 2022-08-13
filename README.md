@@ -3,7 +3,10 @@
 
 # Docker image for bun
 
-Based on alpine linux, the building process is fired when a new [version of bun](https://github.com/oven-sh/bun/releases) is detected.
+Based on alpine linux, the building process is fired when a new [version of bun](https://github.com/oven-sh/bun/releases) is detected and a scheduled daily image based on bun `canary` version
+
+* On new `bun` version, tags created: `latest` and `x.y.z`
+* Scheduled daily on bun canary, tag created: `canary`
 
 The image [dvlprtech/bun](https://hub.docker.com/r/dvlprtech/bun) is generated in DockerHub 
 
