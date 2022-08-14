@@ -1,5 +1,8 @@
 [![Last Commit](https://img.shields.io/github/last-commit/rsc1975/bun-docker?logo=github)](https://github.com/rsc1975/bun-docker/commits/main)
 [![Docker version](https://img.shields.io/docker/v/dvlprtech/bun?sort=semver&logo=docker)](https://hub.docker.com/r/dvlprtech/bun)
+[![Docker canary](https://img.shields.io/docker/image-size/dvlprtech/bun?logo=docker&sort=semver)](https://hub.docker.com/r/dvlprtech/bun)
+
+
 
 # Docker image for bun
 
