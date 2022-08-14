@@ -29,6 +29,7 @@ jobs:
         with:
           context: .
           push: true
+          no-cache: true
           tags: ${{ env.DOCKER_IMAGE }}:${{ env.APP_VERSION }} , ${{ env.DOCKER_IMAGE }}:latest
       - run: echo "🍏 This job's status is ${{ job.status }}."
 
