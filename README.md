@@ -17,13 +17,21 @@ The image [dvlprtech/bun](https://hub.docker.com/r/dvlprtech/bun) is generated i
 
 ## Getting started
 
-```
+```sh
 docker run -it --rm dvlprtech/bun --version
 ```
-
+It will output for instance:
+```txt
+0.1.8
 ```
-echo 'console.log("Hello World !!");' > hi.js
-docker run -it --rm -v$(pwd):/app dvlprtech/bun /app/hi.js
+
+```sh
+echo 'console.log(`Hello ${process.argv[process.argv.length - 1] || "World"} !!`);' > hi.js
+docker run -it --rm -v$(pwd):/app dvlprtech/bun run /app/hi.js Folks
+```
+It will show:
+```
+Hello Folks !!
 ```
 
 Yo can also use the image as base for your bun own project:
