@@ -3,7 +3,7 @@ name: Publish bun canary Docker Image
 on:
   workflow_dispatch:
   schedule:
-    - cron:  '5 0 * * *'
+    - cron:  '5 */12 * * *'
     
 jobs:    
   upload-dockerhub:
