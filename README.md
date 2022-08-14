@@ -25,6 +25,8 @@ It will output for instance:
 0.1.8
 ```
 
+To launch a local file we need to map the file dir to the container:
+
 ```sh
 echo 'console.log(`Hello ${process.argv[process.argv.length - 1] || "World"} !!`);' > hi.js
 docker run -it --rm -v$(pwd):/app dvlprtech/bun run /app/hi.js Folks
