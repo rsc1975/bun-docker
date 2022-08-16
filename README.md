@@ -10,7 +10,7 @@ Based on [alpine linux](https://hub.docker.com/_/alpine), the building process i
 * On new `bun` version, tags created: `latest` and `x.y.z`
 * Scheduled daily on bun canary, tag created: `canary`
 
-The image [dvlprtech/bun](https://hub.docker.com/r/dvlprtech/bun) is generated in DockerHub 
+The image [dvlprtech/bun](https://hub.docker.com/r/dvlprtech/bun) is published  in DockerHub 
 
 
 
