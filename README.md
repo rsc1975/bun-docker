@@ -5,10 +5,10 @@
 
 # Docker image for bun
 
-Based on [alpine linux](https://hub.docker.com/_/alpine), the building process is fired when a new [version of bun](https://github.com/oven-sh/bun/releases) is detected and a scheduled daily image based on bun `canary` version
+Based on [alpine linux](https://hub.docker.com/_/alpine) and [ubuntu](https://hub.docker.com/_/ubuntu), the building process is fired when a new [version of bun](https://github.com/oven-sh/bun/releases) is detected and a scheduled daily image based on bun `canary` version
 
-* On new `bun` version, tags created: `latest` and `x.y.z`
-* Scheduled daily on bun canary, tag created: `canary`
+* On new bun version, tags created: `latest` and `x.y.z` based on alpine & `ubuntu` and `x.y.z-ubuntu` based on ubuntu:22.04
+* Scheduled every 12h on bun canary version, tag created: canary (based on alpine)
 
 The image [dvlprtech/bun](https://hub.docker.com/r/dvlprtech/bun) is published  in DockerHub 
 
@@ -21,7 +21,7 @@ docker run -it --rm dvlprtech/bun --version
 ```
 It will output for instance:
 ```txt
-0.1.8
+0.1.9
 ```
 
 To launch a local file we need to map the file dir to the container:
