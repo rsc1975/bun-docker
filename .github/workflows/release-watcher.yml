@@ -11,6 +11,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Fetch release version
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
         run: |
           curl -sL https://api.github.com/repos/oven-sh/bun/releases/latest | \
           jq -r ".tag_name" > last-bun-version.txt
