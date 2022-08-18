@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.RELEASE_CREATION }}
       - name: Fetch release version
         run: |
           curl -sL https://api.github.com/repos/oven-sh/bun/releases/latest | \
