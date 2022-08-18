@@ -30,7 +30,4 @@ jobs:
           git push
           git tag -a "v$VERSION" HEAD -m "v$VERSION"
           git push origin "v$VERSION"
-      - name: Test workflow call
-        run: |
-          gh workflow run docker-publish.yml
           
