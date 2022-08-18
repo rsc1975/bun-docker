@@ -28,6 +28,11 @@ RUN wget https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub && \
 ### FINAL IMAGE ###
 FROM alpine:latest as final
 
+LABEL author="Roberto <https://hub.docker.com/u/dvlprtech>"
+LABEL os="alpine"
+LABEL github="https://github.com/rsc1975/bun-docker"
+LABEL description="Image that provides bun (https://bun.sh/) runtime"
+
 ARG GLIBC_RELEASE
 
 COPY --from=get-release /tmp/bun-linux-x64/bun /usr/local/bin/ 

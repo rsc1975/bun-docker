@@ -29,6 +29,8 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
+          labels:
+            version: ${{ env.APP_VERSION }}
           push: true
           no-cache: true
           tags: ${{ env.DOCKER_IMAGE }}:${{ env.APP_VERSION }} , ${{ env.DOCKER_IMAGE }}:latest
@@ -36,6 +38,8 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
+          labels:
+            version: ${{ env.APP_VERSION }}
           file: Dockerfile.ubuntu
           push: true
           no-cache: true
