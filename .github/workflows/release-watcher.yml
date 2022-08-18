@@ -26,4 +26,5 @@ jobs:
           git push
           git tag -a "v$VERSION" HEAD -m "v$VERSION"
           git push origin "v$VERSION"
+          gh workflow run docker-publish.yml
           
