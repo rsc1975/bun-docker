@@ -25,24 +25,22 @@ jobs:
               echo "APP_NAME=bun" >> $GITHUB_ENV
       - run: echo "DOCKER_IMAGE=${{ env.DOCKER_ID }}/${{ env.APP_NAME }}" >> $GITHUB_ENV
       - run: echo App ${{env.DOCKER_IMAGE}}
-      - name: Build and push default alpine
-        uses: docker/build-push-action@v3
-        with:
-          context: .
-          labels:
-            version: ${{ env.APP_VERSION }}
-          push: true
-          no-cache: true
-          tags: ${{ env.DOCKER_IMAGE }}:${{ env.APP_VERSION }} , ${{ env.DOCKER_IMAGE }}:latest
       - name: Build and push with Ubuntu
         uses: docker/build-push-action@v3
         with:
           context: .
-          labels:
-            version: ${{ env.APP_VERSION }}
+          labels: "version=${{ env.APP_VERSION }}"            
           file: Dockerfile.ubuntu
           push: true
           no-cache: true
-          tags: ${{ env.DOCKER_IMAGE }}:ubuntu-${{ env.APP_VERSION }} , ${{ env.DOCKER_IMAGE }}:ubuntu
+          tags: ${{ env.DOCKER_IMAGE }}:${{ env.APP_VERSION }}-ubuntu , ${{ env.DOCKER_IMAGE }}:ubuntu
+      - name: Build and push default alpine
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          labels: "version=${{ env.APP_VERSION }}"
+          push: true
+          no-cache: true
+          tags: ${{ env.DOCKER_IMAGE }}:${{ env.APP_VERSION }} , ${{ env.DOCKER_IMAGE }}:latest
       - run: echo "🍏 This job's status is ${{ job.status }}."
 

@@ -28,8 +28,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          labels:
-            version: ${{ env.APP_VERSION }}-canary
+          labels: "version=${{ env.APP_VERSION }}-canary"
           push: true
           no-cache: true
           build-args: release=canary
