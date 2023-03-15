@@ -39,6 +39,5 @@ Yo can also use the image as base for your bun own project:
 
 ```dockerfile
 #Dockerfile
-FRON dvlprtech/bun:latest
+FROM dvlprtech/bun:latest
 ...
-```
